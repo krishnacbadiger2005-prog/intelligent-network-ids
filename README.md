@@ -64,7 +64,15 @@ Live Npcap mode:
 ```powershell
 python netsniff.py
 ```
+## Project Screenshots
 
+### Network IDS Dashboard
+
+![Network IDS Dashboard](screenshots/dashboard.png)
+
+### Network Monitoring
+
+![Network Monitoring](screenshots/ns2.png)
 ## API
 
 - `GET /packets`
