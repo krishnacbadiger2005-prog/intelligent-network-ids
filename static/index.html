@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NetSniff IDS</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="rail">
+        <div class="brand">
+          <span class="mark">NS</span>
+          <div>
+            <strong>NetSniff</strong>
+            <small>Protocol Analyzer</small>
+          </div>
+        </div>
+        <button class="nav active" data-view="packets">Packets</button>
+        <button class="nav" data-view="sessions">Sessions</button>
+        <button class="nav" data-view="alerts">Alerts</button>
+        <button class="nav" data-view="protocols">Protocols</button>
+        <button class="nav" data-view="rules">Rules</button>
+      </aside>
+
+      <section class="workbench">
+        <header class="topbar">
+          <div>
+            <div class="title-row">
+              <h1>Intelligent Protocol Analyzer & IDS</h1>
+              <span id="wsStatusBadge" class="badge ws-disconnected">WS DISCONNECTED</span>
+            </div>
+            <p id="statusText">All previous packets are cleared. Click Start for live Npcap capture.</p>
+          </div>
+          <div class="toolbar">
+            <input id="filterInput" type="search" placeholder="Filter packets: tcp, ip == 192.168.1.22, port == 80, amazon..." />
+            <button id="startBtn" class="primary">Start</button>
+            <button id="stopBtn">Stop</button>
+            <button id="clearBtn">Clear</button>
+          </div>
+        </header>
+
+        <section class="content-grid">
+          <div class="main-panel">
+            <div class="panel-head">
+              <h2 id="tableTitle">Packet Capture</h2>
+              <span id="rowCount">0 rows</span>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead id="tableHead"></thead>
+                <tbody id="tableBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <aside class="detail-panel">
+            <div class="panel-head">
+              <h2>Inspector</h2>
+              <span id="severityBadge">idle</span>
+            </div>
+            <pre id="detailView">Select a packet, session, protocol row, rule, or alert.</pre>
+          </aside>
+        </section>
+
+        <section class="charts">
+          <div class="chart-block">
+            <div class="panel-head"><h2>Protocol Distribution</h2></div>
+            <div id="protocolBars" class="bars"></div>
+          </div>
+          <div class="chart-block">
+            <div class="panel-head"><h2>Top Destination Ports</h2></div>
+            <div id="portBars" class="bars"></div>
+          </div>
+          <div class="chart-block">
+            <div class="panel-head"><h2>Top Talkers</h2></div>
+            <div id="talkerBars" class="bars"></div>
+          </div>
+        </section>
+      </section>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

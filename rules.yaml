@@ -1,0 +1,25 @@
+# NetSniff rule file. Edit values and restart, or POST /rules to add a rule.
+-
+  id: "DNS-ENTROPY-001"
+  name: "High Entropy DNS Query"
+  protocol: "DNS"
+  threshold: 1
+  window_seconds: 30
+  severity: "High"
+  message: "Possible DNS tunneling or generated domain name"
+-
+  id: "HTTP-CRED-001"
+  name: "Cleartext Credential Submission"
+  protocol: "HTTP"
+  threshold: 1
+  window_seconds: 30
+  severity: "Critical"
+  message: "HTTP payload contains password-like data"
+-
+  id: "TCP-SYNSCAN-001"
+  name: "TCP SYN Port Scan"
+  protocol: "TCP"
+  threshold: 12
+  window_seconds: 10
+  severity: "High"
+  message: "One source contacted many destination ports quickly"
